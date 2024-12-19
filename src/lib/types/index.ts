@@ -4,18 +4,19 @@ export type Icon = {
   height?: string;
   color?: string;
   strokeWidth?: string;
-}
+};
 
 export type Link = {
   href: string;
   text: string;
   icon?: string;
-}
+  target?: "_blank" | "_self";
+};
 
 type Author = {
   name: string;
   link: string;
-}
+};
 
 export type Meta = {
   title: string;
@@ -24,10 +25,10 @@ export type Meta = {
   type: "article" | "website";
   ogImage: string;
   ogImageAlt: string;
-}
+};
 
 export type ArticleMeta = Meta & {
   publishedTime: string;
   lastModified: string;
   authors: Author[];
-}
+};

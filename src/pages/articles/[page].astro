@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import ListLayout from "~/layouts/list.astro";
-import { Site } from "~/lib/constants/config";
+import { SITE } from "~/lib/config";
 import PaginationOne from "~/components/shared/pagination-one.astro";
 import { getEntry } from "astro:content";
 import WideCard from "~/components/cards/wideCard.astro";
@@ -10,7 +10,7 @@ import { getMeta } from "~/lib/utils/getMeta";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const articles = await getCollection("articles");
-  return paginate(articles, { pageSize: Site.postsPerPage });
+  return paginate(articles, { pageSize: SITE.postsPerPage });
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
@@ -34,7 +34,10 @@ const [HEADER] = entry.data.blocks;
     <ul class="flex flex-col gap-4">
       {
         articles.map((article) => (
-          <WideCard article={article} isLast={articles.lastIndexOf(article) === articles.length - 1} />
+          <WideCard
+            article={article}
+            isLast={articles.lastIndexOf(article) === articles.length - 1}
+          />
         ))
       }
     </ul>

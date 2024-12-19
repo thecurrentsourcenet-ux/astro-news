@@ -3,15 +3,28 @@ import Moon from "~/assets/svgs/moon.astro";
 import Sun from "~/assets/svgs/sun.astro";
 ---
 
-<label class="btn btn-ghost btn-circle swap swap-rotate">
+<label class="btn btn-ghost btn-circle swap swap-rotate" for="theme-controller">
   <!-- This hidden checkbox controls the state -->
-  <input type="checkbox" class="theme-controller" value="dark" />
+  <input
+    type="checkbox"
+    class="theme-controller"
+    value="dark"
+    name="theme-controller"
+    id="theme-controller"
+  />
 
   <!-- Sun icon -->
-  <Sun />
+  <span class="icon sun-icon" aria-hidden="true">
+    <Sun />
+  </span>
 
   <!-- Moon icon -->
-  <Moon />
+  <span class="icon moon-icon" aria-hidden="true">
+    <Moon />
+  </span>
+
+  <!-- Accessible text for screen readers -->
+  <span class="sr-only">Toggle theme</span>
 </label>
 
 <script is:inline>

@@ -1,5 +1,5 @@
 ---
-import { Navigation, Social, otherLinks } from "~/lib/constants/config";
+import { NAVIGATION_LINKS, SOCIAL_LINKS, OTHER_LINKS } from "~/lib/config";
 import Hashtag from "~/assets/svgs/hashtag.astro";
 import Icon from "../bases/icon.astro";
 ---
@@ -8,11 +8,11 @@ import Icon from "../bases/icon.astro";
   <div class="container">
     <div class="flex flex-col gap-4">
       <aside class="flex items-center gap-2">
-        <Hashtag/>
+        <Hashtag />
         <p>
-          <strong class="text-lg"> Astro News </strong>
+          <strong class="text-lg">Astro News</strong>
           <br />
-          A news website open source built with <a
+          A news website built with <a
             class="underline"
             href="https://astro.build"
             target="_blank">Astro</a
@@ -25,8 +25,8 @@ import Icon from "../bases/icon.astro";
         <a href="/" class="link link-hover">Home</a>
         <a href="/articles" class="link link-hover">Articles</a>
         {
-          Navigation.map(({ href, text }) => (
-            <a href={href} class="link link-hover">
+          NAVIGATION_LINKS.map(({ href, text, target }) => (
+            <a href={href} class="link link-hover" target={target ?? "_self"}>
               {text}
             </a>
           ))
@@ -35,14 +35,20 @@ import Icon from "../bases/icon.astro";
     </div>
     <div class="divider w-full h-1"></div>
     <div class="flex flex-col gap-4">
-      <nav class="">
+      <nav>
         <div class="flex gap-4">
           <p class="font-bold">Social Media:</p>
           <ul class="flex flex-wrap gap-4">
             {
-              Social.map(({ href, icon, text }) => (
+              SOCIAL_LINKS.map(({ href, icon, text, target }) => (
                 <li>
-                  <a href={href} class="link link-hover" target="_blank" title={text} aria-label={text}>
+                  <a
+                    href={href}
+                    class="link link-hover"
+                    target={target ?? "_blank"}
+                    title={text}
+                    aria-label={text}
+                  >
                     <Icon icon={icon} />
                   </a>
                 </li>
@@ -53,8 +59,8 @@ import Icon from "../bases/icon.astro";
       </nav>
       <nav class="flex flex-wrap gap-4 text-xs mt-2">
         {
-          otherLinks.map(({ href, text }) => (
-            <a href={href} class="link link-hover">
+          OTHER_LINKS.map(({ href, text, target }) => (
+            <a href={href} class="link link-hover" target={target ?? "_self"}>
               {text}
             </a>
           ))

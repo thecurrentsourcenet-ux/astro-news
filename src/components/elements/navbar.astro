@@ -1,5 +1,5 @@
 ---
-import { Navigation } from "~/lib/constants/config";
+import { NAVIGATION_LINKS } from "~/lib/config";
 import NavbarItem from "../bases/navbar-item.astro";
 ---
 
@@ -7,6 +7,6 @@ import NavbarItem from "../bases/navbar-item.astro";
   <ul class="menu menu-sm menu-horizontal px-1 mx-auto">
     <NavbarItem item={{ href: "/", text: "Home" }} />
     <NavbarItem item={{ href: "/articles", text: "Articles" }} />
-    {Navigation.map((item) => <NavbarItem item={item} />)}
+    {NAVIGATION_LINKS.map((item) => <NavbarItem item={item} />)}
   </ul>
 </nav>

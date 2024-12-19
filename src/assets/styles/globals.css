@@ -6,6 +6,8 @@
   :root {
     --font-sans: "Source Sans Pro";
     --font-serif: "Source Serif 4 Variable";
+
+    cursor: default;
   }
   html {
     @apply h-full text-[16px];
@@ -36,16 +38,4 @@
   .a-01 {
     @apply hover:underline decoration-primary;
   }
-}
-
-:where(*) :where(*, ::before, ::after) {
-  cursor: default;
-}
-
-a, button, :where(a, button) :where(*, ::before, ::after) {
-  cursor: pointer;
-}
-
-:where(input, textarea):not([disabled]) {
-  cursor: text;
 }

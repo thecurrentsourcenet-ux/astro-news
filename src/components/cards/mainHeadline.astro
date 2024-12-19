@@ -1,5 +1,5 @@
 ---
-import { Picture } from "astro:assets";
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
 import Divider from "~/components/bases/divider.astro";
@@ -8,7 +8,7 @@ import { getDateDistance } from "~/lib/utils/date";
 
 type Props = {
   article: CollectionEntry<"articles">;
-}
+};
 
 const { article } = Astro.props;
 
@@ -18,14 +18,18 @@ const category = categoriesHandler.oneCategory(article.data.category.id);
 ---
 
 <article class="group">
-  <a href={`/articles/${article.id}`} class="flex flex-col-reverse md:flex-col gap-4">
+  <a
+    href={`/articles/${article.id}`}
+    class="flex flex-col-reverse md:flex-col gap-4"
+  >
     <div class="aspect-video overflow-hidden rounded-md">
-      <Picture
+      <Image
         src={article.data.cover}
-        alt={article.data.covert_alt ? article.data.covert_alt : article.data.title}
-        layout="full-width"
+        alt={article.data.covert_alt
+          ? article.data.covert_alt
+          : article.data.title}
+        layout="responsive"
         loading={"eager"}
-        formats={["avif", "webp"]}
       />
     </div>
     <div class="flex flex-col gap-2">
@@ -41,7 +45,7 @@ const category = categoriesHandler.oneCategory(article.data.category.id);
       </div>
       <div class="flex items-center text-xs text-base-content/80 mt-2">
         <span class="text-primary">{category.data.title}</span>
-        <Divider/>
+        <Divider />
         <span>{getDateDistance(remarkPluginFrontmatter.lastModified)}</span>
       </div>
     </div>

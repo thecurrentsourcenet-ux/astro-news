@@ -2,32 +2,33 @@
 import Github from "~/assets/svgs/github.astro";
 import Search01 from "~/assets/svgs/search-01.astro";
 import Menu from "~/assets/svgs/menu.astro";
-import { Navigation, otherLinks, Site } from "~/lib/constants/config";
+import { NAVIGATION_LINKS, OTHER_LINKS, SITE } from "~/lib/config";
 import ThemeController from "../bases/theme-controller.astro";
 ---
 
 <div class="navbar bg-base-100 border-b">
   <div class="navbar-start lg:w-1/2">
     <div class="dropdown">
-      <div tabindex="0" role="button" class="btn btn-ghost btn-circle" aria-label="Menu">
-        <Menu/>
+      <div role="button" class="btn btn-ghost btn-circle" aria-label="Menu">
+        <Menu />
       </div>
 
       <ul
-        tabindex="0"
         class="menu dropdown-content z-50 bg-base-100 rounded-box w-56 shadow"
       >
-        <li><a href="/">Home</a></li>
-        <li><a href="/articles">Articles</a></li>
+        <li><a href="/" aria-label="Homepage">Home</a></li>
+        <li><a href="/articles" aria-label="Articles Page">Articles</a></li>
 
         <li>
           <details>
             <summary>Categories</summary>
             <ul>
               {
-                Navigation.map(({ href, text }) => (
+                NAVIGATION_LINKS.map(({ href, text, target }) => (
                   <li>
-                    <a href={href}>{text}</a>
+                    <a href={href} target={target ?? "_self"} aria-label={text}>
+                      {text}
+                    </a>
                   </li>
                 ))
               }
@@ -40,9 +41,11 @@ import ThemeController from "../bases/theme-controller.astro";
             <summary>Other Pages</summary>
             <ul>
               {
-                otherLinks.map(({ href, text }) => (
+                OTHER_LINKS.map(({ href, text, target }) => (
                   <li>
-                    <a href={href}>{text}</a>
+                    <a href={href} target={target ?? "_self"} aria-label={text}>
+                      {text}
+                    </a>
                   </li>
                 ))
               }
@@ -51,17 +54,22 @@ import ThemeController from "../bases/theme-controller.astro";
         </li>
       </ul>
     </div>
-    <a class="text-xl px-2 text-nowrap lg:hidden" href="/">{Site.title}</a>
+    <a class="text-xl px-2 text-nowrap lg:hidden" href="/">{SITE.title}</a>
   </div>
   <div class="navbar-center hidden lg:flex">
-    <a class="text-xl px-2" href="/">{Site.title}</a>
+    <a class="text-xl px-2" href="/">{SITE.title}</a>
   </div>
   <div class="navbar-end">
-    <ThemeController/>
+    <ThemeController />
     <a class="btn btn-ghost btn-circle" href="/search" aria-label="Search">
       <Search01 />
     </a>
-    <a class="btn btn-ghost btn-circle" href={Site.github} target="_blank" aria-label="GitHub">
+    <a
+      class="btn btn-ghost btn-circle"
+      href={SITE.github}
+      target="_blank"
+      aria-label="GitHub"
+    >
       <Github />
     </a>
   </div>

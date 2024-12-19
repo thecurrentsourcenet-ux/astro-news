@@ -1,6 +1,6 @@
-import type { Link } from "../types"
+import type { Link } from "../types";
 
-export const Site = {
+export const SITE = {
   title: "Astro News",
   description: "A news website built with Astro",
   author: "Mohammad Rahmani",
@@ -11,9 +11,9 @@ export const Site = {
   charset: "UTF-8",
   basePath: "/",
   postsPerPage: 4,
-}
+};
 
-export const Navigation: Link[] = [
+export const NAVIGATION_LINKS: Link[] = [
   {
     href: "/categories/technology",
     text: "Technology",
@@ -37,10 +37,10 @@ export const Navigation: Link[] = [
   {
     href: "/categories/finance",
     text: "Finance",
-  }
-]
+  },
+];
 
-export const otherLinks: Link[] = [
+export const OTHER_LINKS: Link[] = [
   {
     href: "/about",
     text: "About us",
@@ -56,7 +56,8 @@ export const otherLinks: Link[] = [
   {
     href: "/privacy",
     text: "Privacy",
-  }, {
+  },
+  {
     href: "/terms",
     text: "Terms",
   },
@@ -71,10 +72,10 @@ export const otherLinks: Link[] = [
   {
     href: "https://astro-news-six.vercel.app/sitemap-index.xml",
     text: "Sitemap",
-  }
-]
+  },
+];
 
-export const Social: Link[] = [
+export const SOCIAL_LINKS: Link[] = [
   {
     href: "https://github.com",
     text: "GitHub",
@@ -89,9 +90,10 @@ export const Social: Link[] = [
     href: "https://twitter.com",
     text: "Twitter",
     icon: "newTwitter",
-  }, {
+  },
+  {
     href: "https://www.facebook.com",
     text: "Facebook",
     icon: "facebook",
-  }
-]
+  },
+];

@@ -38,11 +38,15 @@ const paginationList = Array.from(
   <nav class="join">
     {
       `${firstUrl}/1` == `${currentUrl}` ? (
-        <span class="join-item btn btn-sm btn-disabled">
+        <span class="join-item btn btn-sm btn-disabled" aria-label="First page">
           <ArrowLeftDouble />
         </span>
       ) : (
-        <a href={`${firstUrl}/1`} class="join-item btn btn-sm">
+        <a
+          href={`${firstUrl}/1`}
+          class="join-item btn btn-sm"
+          aria-label="First page"
+        >
           <ArrowLeftDouble />
         </a>
       )
@@ -85,11 +89,11 @@ const paginationList = Array.from(
 
     {
       lastUrl == currentUrl ? (
-        <span class="join-item btn btn-sm btn-disabled">
+        <span class="join-item btn btn-sm btn-disabled" aria-label="Last page">
           <ArrowRightDouble />
         </span>
       ) : (
-        <a href={lastUrl} class="join-item btn btn-sm">
+        <a href={lastUrl} class="join-item btn btn-sm" aria-label="Last page">
           <ArrowRightDouble />
         </a>
       )

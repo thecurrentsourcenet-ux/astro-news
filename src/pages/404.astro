@@ -3,10 +3,10 @@ import { getEntry } from "astro:content";
 import BaseLayout from "../layouts/base.astro";
 import { getMeta } from "~/lib/utils/getMeta";
 
-const entry = await getEntry("views", "404");
+const entry = await getEntry("views", "error404");
 
 if (!entry) {
-  return Astro.redirect("/404");
+  throw new Error("404 page not found");
 }
 
 const [HERO] = entry.data.blocks;
@@ -18,6 +18,8 @@ const meta = await getMeta(entry);
   <div class="container flex flex-col items-center justify-center py-20">
     <h1 class="text-4xl">{HERO.title}</h1>
     <p class="mt-2">{HERO.description}</p>
-    <a href={HERO.link_url} class="btn mt-6">{HERO.link_text}</a>
+    <a href={HERO.link_url} class="btn mt-6" aria-label="Return to Homepage"
+      >{HERO.link_text}</a
+    >
   </div>
 </BaseLayout>

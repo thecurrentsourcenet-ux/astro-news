@@ -5,7 +5,7 @@ import "@fontsource/source-sans-pro/600.css";
 import "@fontsource/source-sans-pro/700.css";
 import "@fontsource-variable/source-serif-4";
 import "~/assets/styles/globals.css";
-import { Site } from "~/lib/constants/config";
+import { SITE } from "~/lib/config";
 import type { ArticleMeta, Meta } from "~/lib/types";
 
 type Props = ArticleMeta | Meta;
@@ -17,23 +17,30 @@ const isArticleMeta = (props: Props): props is ArticleMeta =>
   props.type === "article";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
 const OGImage = new URL(props.ogImage, Astro.url).href;
-
-
-
 ---
 
 <head>
   <!-- Global Metadata -->
-  <meta charset={Site.charset} />
+  <meta charset={SITE.charset} />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="generator" content={Astro.generator} />
 
-  <!-- Favicon -->
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Astro News" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   <!-- RSS & Sitemap -->
   <link rel="sitemap" href="/sitemap-index.xml" />
-  <link rel="alternate" type="application/rss+xml" title={Site.title} href={new URL("rss.xml", Astro.site)}/>
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title={SITE.title}
+    href={new URL("rss.xml", Astro.site)}
+  />
 
   <!-- Canonical URL -->
   <link rel="canonical" href={canonicalURL} />
@@ -72,8 +79,7 @@ const OGImage = new URL(props.ogImage, Astro.url).href;
           content={new Date(props.lastModified).toISOString()}
         />
 
-        {
-          props.authors.map((author) => (
+        {props.authors.map((author) => (
           <>
             <meta property="author" content={author.name} />
             <meta
@@ -81,11 +87,9 @@ const OGImage = new URL(props.ogImage, Astro.url).href;
               content={`${Astro.site}authors/${author.link}`}
             />
           </>
-        ))
-        }
+        ))}
       </>
-    )
-    : null
+    ) : null
   }
 
   <ClientRouter />
