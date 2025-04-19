@@ -4,14 +4,18 @@ const articlesCollection = (
   await getCollection("articles", ({ data }) => {
     return data.isDraft !== true && new Date(data.publishedTime) < new Date();
   })
-).sort((a, b) => b.data.publishedTime.localeCompare(a.data.publishedTime));
+).sort((a, b) =>
+  new Date(b.data.publishedTime)
+    .toISOString()
+    .localeCompare(new Date(a.data.publishedTime).toISOString())
+);
 
 export const articlesHandler = {
   allArticles: () => articlesCollection,
 
   mainHeadline: () => {
     const article = articlesCollection.filter(
-      (article) => article.data.isBigHeadline === true
+      (article) => article.data.isMainHeadline === true
     )[0];
     if (!article)
       throw new Error(
@@ -25,7 +29,7 @@ export const articlesHandler = {
     const subHeadlines = articlesCollection
       .filter(
         (article) =>
-          article.data.isSmallHeadline === true &&
+          article.data.isSubHeadline === true &&
           mainHeadline.id !== article.id
       )
       .slice(0, 4);

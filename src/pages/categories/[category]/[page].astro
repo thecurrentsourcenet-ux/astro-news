@@ -8,6 +8,7 @@ import ListLayout from "@/layouts/list.astro";
 import Pagination from "@/components/shared/pagination.astro";
 import WideCard from "@/components/cards/wideCard.astro";
 import { getEntry } from "astro:content";
+
 export const getStaticPaths = (async ({ paginate }) => {
   const allCategories = categoriesHandler.allCategories();
   const allArticles = articlesHandler.allArticles();
@@ -18,16 +19,18 @@ export const getStaticPaths = (async ({ paginate }) => {
     );
     return paginate(filteredArticles, {
       params: { category: category.id },
+      props: { postsLength: filteredArticles.length },
       pageSize: SITE.postsPerPage,
     });
   });
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
+const { postsLength } = Astro.props;
 const params = Astro.params;
 const articles = page.data;
 const pathname = new URL(Astro.request.url).pathname.split("/");
-const firstPath = pathname[1];
+const basePath = `${pathname[1]}/${pathname[2]}`;
 
 const entry = await getEntry("views", "categories");
 
@@ -48,15 +51,15 @@ if (!entry) {
     }
   </ul>
   {
-    articles.length > SITE.postsPerPage ? (
+    postsLength > SITE.postsPerPage ? (
       <Pagination
         length={page.lastPage}
         currentUrl={page.url.current}
         currentPage={page.currentPage}
-        firstUrl={`/${firstPath}`}
+        baseUrl={`/${basePath}`}
         prevUrl={page.url.prev}
         nextUrl={page.url.next}
-        lastUrl={`/${firstPath}/${page.lastPage}`}
+        lastUrl={`/${basePath}/${page.lastPage}`}
       />
     ) : null
   }

@@ -16,7 +16,7 @@ export const getStaticPaths = (async ({ paginate }) => {
 const { page } = Astro.props;
 const articles = page.data;
 const pathname = new URL(Astro.request.url).pathname.split("/");
-const firstPath = pathname[1];
+const basePath = pathname[1];
 
 const entry = await getEntry("views", "articles");
 
@@ -25,8 +25,6 @@ if (!entry) {
 }
 
 const [HEADER] = entry.data.blocks;
-
-console.log(articles.length, SITE.postsPerPage);
 ---
 
 <ListLayout header={HEADER.title} entry={entry}>
@@ -48,10 +46,10 @@ console.log(articles.length, SITE.postsPerPage);
         length={page.lastPage}
         currentUrl={page.url.current}
         currentPage={page.currentPage}
-        firstUrl={`/${firstPath}`}
+        baseUrl={`/${basePath}`}
         prevUrl={page.url.prev}
         nextUrl={page.url.next}
-        lastUrl={`/${firstPath}/${page.lastPage}`}
+        lastUrl={`/${basePath}/${page.lastPage}`}
       />
     )
   }

@@ -1,9 +1,9 @@
 ---
 import BaseLayout from "@/layouts/base.astro";
 import { getEntry } from "astro:content";
-import Headlines from "./_home/headlines.astro";
-import LatestNews from "./_home/latestNews.astro";
-import Authors from "./_home/authors.astro";
+import Headlines from "@/pages/_home/headlines.astro";
+import LatestNews from "@/pages/_home/latestNews.astro";
+import Authors from "@/pages/_home/authors.astro";
 
 const entry = await getEntry("views", "home");
 

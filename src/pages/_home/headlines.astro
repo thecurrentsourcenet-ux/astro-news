@@ -3,8 +3,8 @@ import MainHeadline from "@/components/cards/mainHeadline.astro";
 import SubHeadlineCard from "@/components/cards/subHeadlineCard.astro";
 import { articlesHandler } from "@/lib/handlers/articles";
 
-const bigHeadline = articlesHandler.mainHeadline();
-const smallHeadlines = articlesHandler.subHeadlines();
+const mainHeadlineArticle = articlesHandler.mainHeadline();
+const subHeadlinesArticles = articlesHandler.subHeadlines();
 ---
 
 <section
@@ -12,15 +12,15 @@ const smallHeadlines = articlesHandler.subHeadlines();
   data-pagefind-ignore="all"
 >
   <div class="col-span-1 md:col-span-6">
-    <MainHeadline article={bigHeadline} />
+    <MainHeadline article={mainHeadlineArticle} />
   </div>
   <div class="col-span-1 md:col-span-4">
     {
-      smallHeadlines.map((article, index) => (
+      subHeadlinesArticles.map((article, index) => (
         <SubHeadlineCard
           article={article}
           isFirst={index === 0}
-          isLast={index === smallHeadlines.length - 1}
+          isLast={index === subHeadlinesArticles.length - 1}
         />
       ))
     }

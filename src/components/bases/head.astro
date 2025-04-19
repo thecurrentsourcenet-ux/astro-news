@@ -1,10 +1,10 @@
 ---
-import { ClientRouter } from "astro:transitions";
+import "@/styles/global.css";
 import "@fontsource/source-sans-pro/400.css";
 import "@fontsource/source-sans-pro/600.css";
 import "@fontsource/source-sans-pro/700.css";
 import "@fontsource-variable/source-serif-4";
-import "@/assets/styles/globals.css";
+import { ClientRouter } from "astro:transitions";
 import { SITE } from "@/lib/config";
 import type { ArticleMeta, Meta } from "@/lib/types";
 
@@ -18,6 +18,7 @@ const { meta } = Astro.props;
 const isArticleMeta = (props: Props["meta"]): props is ArticleMeta =>
   props.type === "article";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+
 const OGImage = new URL(meta.ogImage, Astro.url).href;
 ---
 

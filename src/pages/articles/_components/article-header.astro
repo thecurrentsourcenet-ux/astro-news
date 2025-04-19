@@ -1,7 +1,7 @@
 ---
 import { Image, Picture } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
-import { formatDate } from "@/lib/utils/date";
+import { formatDate, normalizeDate } from "@/lib/utils/date";
 import ResourcesAdd from "@/assets/svgs/resources-add.astro";
 import Time04 from "@/assets/svgs/time-04.astro";
 import Calendar04 from "@/assets/svgs/calendar-04.astro";
@@ -25,7 +25,7 @@ const authors = authorsHandler.getAuthors(article.data.authors);
   class="mb-8 flex flex-col lg:flex-col-reverse border-b border-b-base-300 lg:border-none pb-4 pt-0 lg:pt-6"
 >
   <div
-    class="container px-0 lg:px-4 max-w-5xl aspect-[20/9] lg:mt-4 overflow-hidden"
+    class="container px-0 max-w-5xl lg:mt-4 overflow-hidden aspect-[20/9] rounded-md"
   >
     <Picture
       src={article.data.cover}
@@ -33,7 +33,7 @@ const authors = authorsHandler.getAuthors(article.data.authors);
       layout="full-width"
       loading={"eager"}
       formats={["avif", "webp"]}
-      class="w-full h-full object-cover"
+      class="w-full h-full object-center"
     />
   </div>
   <div class="container my-4 max-w-5xl lg:hidden flex items-center gap-2">
@@ -57,11 +57,19 @@ const authors = authorsHandler.getAuthors(article.data.authors);
         <Divider responsive />
         <span class="flex items-center gap-1">
           <Calendar04 size="15" />
-          <time class="hidden lg:block" datetime={article.data.publishedTime}
-            >{formatDate(article.data.publishedTime, "long")}</time
+          <time
+            class="hidden lg:block"
+            datetime={normalizeDate(article.data.publishedTime)}
+            >{
+              formatDate(normalizeDate(article.data.publishedTime), "long")
+            }</time
           >
-          <time class="block lg:hidden" datetime={article.data.publishedTime}
-            >{formatDate(article.data.publishedTime, "short")}</time
+          <time
+            class="block lg:hidden"
+            datetime={normalizeDate(article.data.publishedTime)}
+            >{
+              formatDate(normalizeDate(article.data.publishedTime), "short")
+            }</time
           >
         </span>
         <Divider />

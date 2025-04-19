@@ -48,16 +48,17 @@ const category = categoriesHandler.oneCategory(article.data.category.id);
     </div>
   </div>
 
-  <div class="overflow-hidden w-[165px] h-[125px] shrink-0">
+  <div
+    class="overflow-hidden w-[165px] h-[125px] md:w-[120px] md:h-full shrink-0"
+  >
     <Image
       src={article.data.cover}
       alt={article.data.covert_alt
         ? article.data.covert_alt
         : article.data.title}
       loading="eager"
+      widths={[120, 320]}
       class="object-cover rounded w-full h-full"
-      width={165}
-      height={125}
     />
   </div>
 </article>

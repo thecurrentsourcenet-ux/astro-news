@@ -14,7 +14,7 @@ export const getStaticPaths = (({ paginate }) => {
 
   return allAuthors.flatMap((author) => {
     const filteredArticles = allArticles.filter((article) =>
-      article.data.authors.map((a) => a.id).includes(author.id)
+      article.data.authors.map((a) => a.id).includes(author.id),
     );
     return paginate(filteredArticles, {
       params: { id: author.id },
@@ -27,7 +27,7 @@ const { page } = Astro.props;
 const params = Astro.params;
 const articles = page.data;
 const pathname = new URL(Astro.request.url).pathname.split("/");
-const firstPath = pathname[1];
+const basePath = `${pathname[1]}/${pathname[2]}`;
 
 const entry = await getEntry("views", "author");
 const author = authorsHandler.findAuthor(params.id);
@@ -66,9 +66,9 @@ const [HEADER] = entry.data.blocks;
     length={page.lastPage}
     currentUrl={page.url.current}
     currentPage={page.currentPage}
-    firstUrl={`/${firstPath}`}
+    baseUrl={`/${basePath}`}
     prevUrl={page.url.prev}
     nextUrl={page.url.next}
-    lastUrl={`/${firstPath}/${page.lastPage}`}
+    lastUrl={`/${basePath}/${page.lastPage}`}
   />
 </ListLayout>

@@ -1,85 +1,48 @@
-# Astro News 📰
+# Astro Starter Kit: Basics
 
-A news website built with Astro, designed to provide a modern and responsive news reading experience.
-
-> **ℹ️ Info**
-> Astro news is my first open-source project, so there may be some bugs or issues. I’ll address them as quickly as possible.
-
-![Astro News](./src/assets/images/screenshot-astronews.png "Astro News")
-
-## 🌐 Demo
-
-Explore the live demo here: [**Live Demo**](https://astro-news-six.vercel.app/)
-
-## 🚀 Installation
-
-Follow the steps below to set up and run the project locally:
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/Mrahmani71/astro-news.git
+```sh
+bun create astro@latest -- --template basics
 ```
 
-### Install Dependencies
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
 
-```bash
-bun install
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+
+![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src/
+│   ├── layouts/
+│   │   └── Layout.astro
+│   └── pages/
+│       └── index.astro
+└── package.json
 ```
 
-### Run Development Server
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
-```bash
-bun dev
-```
+## 🧞 Commands
 
-## ✨ Features
+All commands are run from the root of the project, from a terminal:
 
-### Implemented Features
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `bun install`             | Installs dependencies                            |
+| `bun dev`             | Starts local dev server at `localhost:4321`      |
+| `bun build`           | Build your production site to `./dist/`          |
+| `bun preview`         | Preview your build locally, before deploying     |
+| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `bun astro -- --help` | Get help using the Astro CLI                     |
 
-- Content Layer
-- Navigation
-- Responsive Design
-- Pagination
-- Search Functionality
-- RSS Feed
-- Sitemap
-- Dark Mode
-- SEO Optimization (~)
-- Sharing Options
+## 👀 Want to learn more?
 
-## 💻 Technologies
-
-This project leverages cutting-edge web technologies:
-
-- [Astro V5.0](https://astro.build/) - Modern static site builder
-- [Tailwind CSS V4](https://tailwindcss.com/) - Utility-first CSS framework
-- [DaisyUI V5](https://daisyui.com/) - Tailwind CSS component library
-- [TypeScript](https://www.typescriptlang.org/) - Typed JavaScript
-- [MDX](https://mdxjs.com/) - Markdown with JSX support
-- [Bun V1.3.8](https://bun.sh/) - Fast JavaScript runtime
-- [Vercel](https://vercel.com/) - Deployment platform
-- [HugeIcons](https://hugeicons.com/) - Icon library
-
-## 💡  Inspirations and Code Concepts
-
-This project draws inspiration from the following sources:
-
-### Designs
-
-- [BBC News](https://www.bbc.com)
-- [NewsHub - News Website](https://dribbble.com/shots/21678041-NewsHub-News-Website)
-- [Let'sread - News Landing Page](https://dribbble.com/shots/24675325-Let-sread-News-Landing-Page)
-
-### Articles
-
-- [Creating A Pagination Component With Astro](https://rimdev.io/creating-a-pagination-component-with-astro)
-- [Adding search to static Astro sites](https://website-thomas-astro.vercel.app/blog/search-static-astro-website)
-
-## 📄 License
-
-Open sourced under the [MIT license](LICENSE).
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Mrahmani71/astro-news/issues)
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
