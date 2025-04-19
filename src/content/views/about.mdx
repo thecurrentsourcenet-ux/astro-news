@@ -6,6 +6,7 @@ blocks:
     title: "About us"
 ---
 import screenshot from '../../assets/images/screenshot-astronews.png';
+import performances from '../../assets/images/Performances.png';
 import { Image } from 'astro:assets';
 
 
@@ -17,6 +18,7 @@ A news website built with Astro, designed to provide a modern and responsive new
 > Astro news is my first open-source project, so there may be some bugs or issues. I’ll address them as quickly as possible.
 
 <Image src={screenshot} alt="Astro News" layout="responsive" class="rounded-lg shadow-xl" />
+<Image src={performances} alt="PageSpeed Insights result" layout="responsive" class="rounded-lg shadow-xl" />
 
 ## 🌐 Demo
 
@@ -34,7 +36,7 @@ git clone https://github.com/Mrahmani71/astro-news.git
 
 ### Install Dependencies
 
-```bash
+``` bash
 bun install
 ```
 
@@ -44,11 +46,26 @@ bun install
 bun dev
 ```
 
+### Running Keystatic CMS
+
+1. Rename `.env.example` to `.env`.
+
+2.  Set `RUN_KEYSTATIC=true`.
+
+3. Start the development server:
+
+```bash
+bun dev 
+```
+
+4. Open `http://localhost:4321/keystatic` in your browser.
+
 ## ✨ Features
 
 ### Implemented Features
 
 - Content Layer
+- Keystatic CMS
 - Navigation
 - Responsive Design
 - Pagination
