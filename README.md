@@ -43,9 +43,9 @@ bun dev
 
 3. Start the development server:
 
-```bash
-bun dev 
-```
+ ```bash
+    bun dev 
+  ```
 
 4. Open `http://localhost:4321/keystatic` in your browser.
 
@@ -66,22 +66,21 @@ bun dev
 
 ### Upcoming Features
 
-- Sharing Options
-- Keystatic CMS
 - Open Graph (OG) Image Generation
 
 ## 💻 Technologies
 
 This project leverages cutting-edge web technologies:
 
-- [Astro V5.0](https://astro.build/) - Modern static site builder
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [Astro V5.7](https://astro.build) - Modern static site builder
+- [KeyStatic](https://keystatic.com) - Headless content-management system
+- [Tailwind CSS](https://tailwindcss.com) - Utility-first CSS framework
 - [DaisyUI](https://daisyui.com/) - Tailwind CSS component library
-- [TypeScript](https://www.typescriptlang.org/) - Typed JavaScript
-- [MDX](https://mdxjs.com/) - Markdown with JSX support
-- [Bun V1.3.8](https://bun.sh/) - Fast JavaScript runtime
-- [Vercel](https://vercel.com/) - Deployment platform
-- [HugeIcons](https://hugeicons.com/) - Icon library
+- [TypeScript](https://typescriptlang.org) - Typed JavaScript
+- [MDX](https://mdxjs.com) - Markdown with JSX support
+- [Bun V1.2.10](https://bun.sh) - Fast JavaScript runtime
+- [Vercel](https://vercel.com) - Deployment platform
+- [HugeIcons](https://hugeicons.com) - Icon library
 
 ## 💡  Inspirations and Code Concepts
 
