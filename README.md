@@ -99,7 +99,7 @@ This project draws inspiration from the following sources:
 
 ## 📄 License
 
-Open sourced under the [MIT license](LICENSE).
+Open sourced under the [MIT license](LICENSE.md).
 
 ## 🤝 Contributing
 
