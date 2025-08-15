@@ -28,6 +28,7 @@ export default defineConfig({
   },
   image: {
     responsiveStyles: true,
+    breakpoints: [640, 1024],
   },
   integrations,
   vite: {
