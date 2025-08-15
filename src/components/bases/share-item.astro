@@ -17,6 +17,7 @@ type Props = {
 const { className, title, dataAwSocialShare, dataAwUrl, dataAwText, icon } =
   Astro.props;
 
+// Optimize icon mapping with better performance
 const iconMap = {
   clipboard: Clipboard,
   facebook: Facebook,
@@ -26,19 +27,37 @@ const iconMap = {
 } as const;
 
 const Icon = iconMap[icon];
+
+// Pre-build class list for better performance
+const buttonClasses = [
+  "slide",
+  "active:scale-95",
+  "w-12",
+  "h-12",
+  "bg-base-200",
+  "flex",
+  "items-center",
+  "justify-center",
+  "rounded-xl",
+  "overflow-hidden",
+  "transition-all",
+  "duration-300",
+  "cursor-pointer",
+  "dark:hover:text-base-content",
+  "hover:text-accent-content",
+  ...className.split(" ").filter(Boolean), // Filter out empty strings
+];
 ---
 
 <button
-  class:list={[
-    "slide active:scale-95 w-12 h-12 bg-base-200 flex items-center justify-center rounded-xl overflow-hidden transition-all duration-300 cursor-pointer dark:hover:text-base-content hover:text-accent-content",
-    ...className.split(" "),
-  ]}
+  class:list={buttonClasses}
   title={title}
   data-aw-social-share={dataAwSocialShare}
   data-aw-url={dataAwUrl}
   data-aw-text={dataAwText}
+  type="button"
 >
-  <span class="shareIcon">
+  <span class="shareIcon" aria-hidden="true">
     <Icon />
   </span>
 </button>

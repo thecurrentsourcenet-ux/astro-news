@@ -26,10 +26,9 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [readingTime, modifiedTime],
   },
-  experimental: {
-    responsiveImages: true,
+  image: {
+    responsiveStyles: true,
   },
-  image: {},
   integrations,
   vite: {
     plugins: [tailwindcss()],
